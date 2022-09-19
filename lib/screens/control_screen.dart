@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:session_nine/screens/home_screen.dart';
-import 'package:session_nine/screens/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'home_screen.dart';
+import 'login_screen.dart';
+
 
 
 class ControlScreen extends StatefulWidget {
@@ -32,7 +34,10 @@ class _ControlScreenState extends State<ControlScreen> {
     SharedPreferences preferences=await SharedPreferences.getInstance();
     setState(() {
       email=preferences.getString("email");
+      preferences.remove("email");
       print(email);
     });
   }
 }
+
+
